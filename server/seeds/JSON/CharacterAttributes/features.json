@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Darkvision",
+    "description": "See in dim light as if bright.",
+    "default_value": 60
+  },
+  {
+    "id": 2,
+    "name": "Extra Attack",
+    "description": "Make an additional attack per turn.",
+    "default_value": null
+  }
+]

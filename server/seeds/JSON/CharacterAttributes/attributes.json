@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Strength",
+    "description": "Physical power and force."
+  },
+  {
+    "id": 2,
+    "name": "Dexterity",
+    "description": "Agility, reflexes, balance."
+  },
+  {
+    "id": 3,
+    "name": "Constitution",
+    "description": "Stamina, endurance."
+  },
+  {
+    "id": 4,
+    "name": "Intelligence",
+    "description": "Reasoning and knowledge."
+  },
+  {
+    "id": 5,
+    "name": "Wisdom",
+    "description": "Perception and insight."
+  },
+  {
+    "id": 6,
+    "name": "Charisma",
+    "description": "Charm, influence, personality."
+  }
+]

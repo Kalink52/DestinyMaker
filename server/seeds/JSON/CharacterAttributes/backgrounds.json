@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Acolyte",
+    "description": "Religious, with knowledge of temples.",
+    "skill_proficiencies": "Religion, Insight"
+  },
+  {
+    "id": 2,
+    "name": "Soldier",
+    "description": "Trained in military skills.",
+    "skill_proficiencies": "Athletics, Intimidation"
+  },
+  {
+    "id": 3,
+    "name": "Criminal",
+    "description": "Skilled in stealth and deception.",
+    "skill_proficiencies": "Stealth, Deception"
+  }
+]

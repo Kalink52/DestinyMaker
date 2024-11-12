@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Fireball",
+    "description": "A ball of fire causing damage.",
+    "level": 3,
+    "class_id": 2,
+    "school_of_magic": "Evocation",
+    "casting_time": "1 Action",
+    "range": "150ft",
+    "components": "V, S, M",
+    "duration": "Instant"
+  },
+  {
+    "id": 2,
+    "name": "Mage Hand",
+    "description": "A spectral hand for manipulation.",
+    "level": 0,
+    "class_id": 2,
+    "school_of_magic": "Conjuration",
+    "casting_time": "1 Action",
+    "range": "30ft",
+    "components": "V, S",
+    "duration": "1 Minute"
+  }
+]

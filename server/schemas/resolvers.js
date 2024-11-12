@@ -7,7 +7,7 @@ const {
   //   Ability,
   //   CharacterAbility,
 } = require("../models");
-const { signToken, AuthenticationError } = require("../utils/auth");
+// const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -19,6 +19,13 @@ const resolvers = {
         },
       });
       return charData;
+    },
+  },
+  Character: {
+    skills: async (character) => {
+      const skillData = await character.getSkills();
+      console.log(skillData);
+      return skillData;
     },
   },
 };

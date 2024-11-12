@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Acrobatics",
+    "description": "Agility and balance.",
+    "associated_attribute": "Dexterity"
+  },
+  {
+    "id": 2,
+    "name": "Stealth",
+    "description": "Ability to move silently.",
+    "associated_attribute": "Dexterity"
+  },
+  {
+    "id": 3,
+    "name": "Arcana",
+    "description": "Knowledge of magic and lore.",
+    "associated_attribute": "Intelligence"
+  },
+  {
+    "id": 4,
+    "name": "Persuasion",
+    "description": "Influence others through charm.",
+    "associated_attribute": "Charisma"
+  }
+]

@@ -12,18 +12,19 @@ Character.init(
       allowNull: false,
       autoIncrement: true,
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   // foreign key
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //     unique: false,
-    //   },
-    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    background_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      //foreign key
+      references: {
+        model: "background",
+        key: "id",
+        unique: false,
+      },
     },
     race_id: {
       type: DataTypes.INTEGER,
@@ -53,15 +54,33 @@ Character.init(
         unique: false,
       },
     },
-    background_id: {
+    level: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      //foreign key
-      references: {
-        model: "backgrounds",
-        key: "id",
-        unique: false,
-      },
+    },
+    health: {
+      type: DataTypes.INTEGER,
+    },
+    darkvision: {
+      type: DataTypes.INTEGER,
+    },
+
+    strength: {
+      type: DataTypes.INTEGER,
+    },
+    dexterity: {
+      type: DataTypes.INTEGER,
+    },
+    constitution: {
+      type: DataTypes.INTEGER,
+    },
+    intelligence: {
+      type: DataTypes.INTEGER,
+    },
+    wisdom: {
+      type: DataTypes.INTEGER,
+    },
+    charisma: {
+      type: DataTypes.INTEGER,
     },
   },
   {

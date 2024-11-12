@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Fighter",
+    "description": "Skilled in combat, adaptable.",
+    "base_health": 10,
+    "health_per_level": 6,
+    "spellcasting_ability": null,
+    "proficiencies": "Light Armor, Martial Weapons"
+  },
+  {
+    "id": 2,
+    "name": "Wizard",
+    "description": "Masters of arcane magic.",
+    "base_health": 6,
+    "health_per_level": 4,
+    "spellcasting_ability": "Intelligence",
+    "proficiencies": "Quarterstaff, Daggers"
+  },
+  {
+    "id": 3,
+    "name": "Rogue",
+    "description": "Sneaky, dexterous, and resourceful.",
+    "base_health": 8,
+    "health_per_level": 5,
+    "spellcasting_ability": null,
+    "proficiencies": "Light Armor, Thieves' Tools"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Longsword",
+    "description": "A versatile sword.",
+    "type": "Weapon",
+    "class_restriction": null,
+    "base_damage": "1d8",
+    "armor_class_bonus": null
+  },
+  {
+    "id": 2,
+    "name": "Leather Armor",
+    "description": "Basic protective gear.",
+    "type": "Armor",
+    "class_restriction": null,
+    "base_damage": null,
+    "armor_class_bonus": 11
+  }
+]
