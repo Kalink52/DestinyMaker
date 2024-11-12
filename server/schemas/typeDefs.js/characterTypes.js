@@ -10,27 +10,18 @@ type Character {
     speed: Int
     level: Int
     darkvision: Int
-    strength: Int
-    dexterity: Int
-    constitution: Int
-    intelligence: Int
-    wisdom: Int
-    charisma: Int
-    attributes: [Attribute]
-    skills: [Skill]
+
+    attributes: [AttributeValue]
     }
 type Attribute {
     id: ID!
     name: String!
     description: String
     }
-type Skill {
-    id: ID!
-    name: String!
-    description: String
-    associated_attribute: String
-    }
-
+type AttributeValue  {
+    attribute: Attribute!
+    value: Int
+}
 type Race {
     id: ID!
     description: String

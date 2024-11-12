@@ -21,6 +21,11 @@ Character.belongsTo(Subrace, { foreignKey: "subrace_id" });
 Character.belongsTo(Class, { foreignKey: "class_id" });
 Character.belongsTo(Background, { foreignKey: "background_id" });
 
+Character.belongsToMany(Attribute, {
+  through: Character_Attributes,
+  foreignKey: "character_id",
+  otherKey: "attribute_id",
+});
 Character.belongsToMany(Skill, {
   through: Character_Skills,
   foreignKey: "character_id",

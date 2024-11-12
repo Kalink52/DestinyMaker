@@ -22,10 +22,14 @@ const resolvers = {
     },
   },
   Character: {
-    skills: async (character) => {
-      const skillData = await character.getSkills();
-      console.log(skillData);
-      return skillData;
+    attributes: async (character) => {
+      const attributes = await character.getAttributes();
+      return attributes.map((attribute) => {
+        return {
+          attribute,
+          value: attribute.character_attributes.value,
+        };
+      });
     },
   },
 };
