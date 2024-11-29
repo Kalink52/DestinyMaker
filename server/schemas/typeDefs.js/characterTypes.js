@@ -24,6 +24,7 @@ type AttributeValue  {
 }
 type Race {
     id: ID!
+    name: String
     description: String
     base_speed: Int
     base_darkvision: Int
