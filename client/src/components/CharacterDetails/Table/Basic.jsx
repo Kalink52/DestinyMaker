@@ -1,7 +1,6 @@
 import { Typography } from "@material-tailwind/react";
 import { useContext } from "react";
 import { CharacterContext } from "../../../utils/context/character";
-const attArray = [1, 2, 3, 4, 5];
 export default function Basic() {
   const { character } = useContext(CharacterContext);
   return (

@@ -1,8 +1,5 @@
 import { Typography } from "@material-tailwind/react";
-const attArray = [1, 2, 3, 4, 5];
-const skillArray = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
-];
+
 
 import { useContext } from "react";
 import { CharacterContext } from "../../utils/context/character";
@@ -10,7 +7,7 @@ import Basic from "./Table/Basic";
 import Attributes from "./Table/Attributes";
 import Skills from "./Table/Skills";
 export default function Table() {
-  const { character, setCharacter } = useContext(CharacterContext);
+  const { character } = useContext(CharacterContext);
   // if (loading) return <div>Loading...</div>;
   return (
     <>
