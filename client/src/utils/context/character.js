@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_CHARACTERS } from "../../graphql/queries";
 const CharacterContext = createContext();
 const DEFAULTCHARACTER = {
   id: "1",
@@ -90,6 +92,7 @@ const DEFAULTCHARACTER = {
 };
 
 const CharacterProvider = ({ children }) => {
+  const { loading, error, data } = useQuery(GET_CHARACTERS);
   const [character, setCharacter] = useState(DEFAULTCHARACTER);
   const [abilityModifier, setAbilityModifiers] = useState();
   useEffect(() => {

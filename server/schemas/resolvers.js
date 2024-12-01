@@ -1,10 +1,10 @@
 const {
   Character,
-  //   Background,
-  //   Race,
-  //   Subrace,
-  //   Class,
-  //   Ability,
+  Attribute,
+  Background,
+  Class,
+  Race,
+  Subrace,
   //   CharacterAbility,
 } = require("../models");
 // const { signToken, AuthenticationError } = require("../utils/auth");
@@ -19,6 +19,20 @@ const resolvers = {
         },
       });
       return charData;
+    },
+    GetAllTraits: async () => {
+      const attributeData =  Attribute.findAll();
+      const backgroundData = Background.findAll();
+      const classData = Class.findAll();
+      const racedata = Race.findAll();
+      const subraces = Subrace.findAll(); 
+      return {
+        attribute: attributeData,
+        background: backgroundData,
+        class: classData,
+        race: racedata,
+        subrace: subraces,
+      } ;
     },
   },
   Character: {
