@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 const CharacterContext = createContext();
 const DEFAULTCHARACTER = {
   id: "1",
@@ -12,6 +12,7 @@ const DEFAULTCHARACTER = {
     description: "Graceful, long-lived, and magical.",
     base_speed: 30,
     base_darkvision: 60,
+    size: "Medium",
   },
   subrace: {
     id: "2",
@@ -90,9 +91,24 @@ const DEFAULTCHARACTER = {
 
 const CharacterProvider = ({ children }) => {
   const [character, setCharacter] = useState(DEFAULTCHARACTER);
+  const [abilityModifier, setAbilityModifiers] = useState();
+  useEffect(() => {
+    const calculateAbilityModifiers = () => {
+      const modifiers = character.attributes.map((attr) => {
+        return {
+          name: attr.attribute.name,
+          value: Math.floor((attr.value - 10) / 2),
+        };
+      });
+      setAbilityModifiers(modifiers);
+    };
+    calculateAbilityModifiers();
+  }, [character]);
   console.log(character);
   return (
-    <CharacterContext.Provider value={{ character, setCharacter }}>
+    <CharacterContext.Provider
+      value={{ character, setCharacter, abilityModifier }}
+    >
       {children}
     </CharacterContext.Provider>
   );

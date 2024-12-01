@@ -45,7 +45,7 @@ export default function Attributes() {
     },
     {
       name: "Size",
-      value: "TBD",
+      value: race.size,
     },
     {
       name: "Weight",

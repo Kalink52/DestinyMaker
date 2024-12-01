@@ -7,8 +7,8 @@ export default function Table() {
     <div>
       <NameForm />
       <RaceForm />
-      <ClassForm />
       <AttributeForm />
+      <ClassForm />
     </div>
   );
 }

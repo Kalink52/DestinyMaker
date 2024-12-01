@@ -8,6 +8,7 @@ const races = [
     description: "Graceful, long-lived, and magical.",
     base_speed: 30,
     base_darkvision: 30,
+    size: "Medium",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const races = [
     description: "Sturdy, resilient, and tough.",
     base_speed: 25,
     base_darkvision: 5,
+    size: "Medium",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const races = [
     description: "Versatile and adaptable.",
     base_speed: 30,
     base_darkvision: 5,
+    size: "Medium",
   },
 ];
 const subraces = [

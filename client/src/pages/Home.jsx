@@ -6,7 +6,7 @@ import CharacterForm from "../components/CharacterDetails/CharacterForm";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-2 grid-flow-row w-full">
+    <div className="grid grid-cols-1 2xl:grid-cols-2 grid-flow-row w-full p-5 gap-5">
       <div>
         <CharacterForm />
       </div>

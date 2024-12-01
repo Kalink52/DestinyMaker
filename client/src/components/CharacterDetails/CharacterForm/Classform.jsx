@@ -33,19 +33,32 @@ const classes = [
 ];
 export default function ClassForm() {
   const { character, setCharacter } = useContext(CharacterContext);
-  const handleChange = (e) => {
+  const handleClassChange = (e) => {
     console.log(e);
     setCharacter({ ...character, class: JSON.parse(e) });
   };
+  const handleLevelChange = (e) => {
+    setCharacter({ ...character, level: parseInt(e.target.value) });
+  };
   return (
     <>
-      <Select label="Select Class" onChange={handleChange}>
+      <Select label="Select Class" onChange={handleClassChange}>
         {classes.map((cla) => (
           <Option key={cla.id} value={JSON.stringify(cla)}>
             {cla.name}
           </Option>
         ))}
       </Select>
+      <div>
+        <label>level </label>
+        <input
+          type="number"
+          value={character.level}
+          min={1}
+          max={15}
+          onChange={handleLevelChange}
+        ></input>
+      </div>
     </>
   );
 }
