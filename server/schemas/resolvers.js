@@ -31,7 +31,12 @@ const resolvers = {
         },
       });
       const classData = Class.findAll();
-      const racedata = Race.findAll();
+      const racedata = Race.findAll({
+        include: {
+          all: true,
+          nested: true,
+        },
+      });
       const skillData = Skill.findAll();
       const subraces = Subrace.findAll();
       return {

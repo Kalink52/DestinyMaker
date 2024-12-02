@@ -10,13 +10,14 @@ export const GET_CHARACTERS = gql`
         name
         description
         base_speed
-        base_darkvision
         features {
           id
           name
           description
           default_value
         }
+        size
+        weight
       }
       subrace {
         id
@@ -62,15 +63,8 @@ export const GET_CHARACTERS = gql`
   }
 `;
 export const GET_TRAITS = gql`
-  query Query {
+  query ExampleQuery {
     GetAllTraits {
-      race {
-        id
-        name
-        description
-        base_speed
-        base_darkvision
-      }
       attribute {
         id
         name
@@ -96,6 +90,26 @@ export const GET_TRAITS = gql`
         spellcasting_ability
         proficiencies
       }
+      race {
+        id
+        name
+        description
+        base_speed
+        features {
+          id
+          name
+          description
+          default_value
+        }
+        size
+        weight
+      }
+      skill {
+        id
+        name
+        description
+        associated_attribute
+      }
       subrace {
         id
         race_id
@@ -103,12 +117,6 @@ export const GET_TRAITS = gql`
         description
         additional_speed
         additional_dark_vision
-      }
-      skill {
-        id
-        name
-        description
-        associated_attribute
       }
     }
   }

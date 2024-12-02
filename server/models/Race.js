@@ -20,14 +20,16 @@ Race.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    base_speed:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
+    base_speed: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-    base_darkvision: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    }
+    weight: {
+      type: DataTypes.STRING,
+    },
+    size: {
+      type: DataTypes.STRING,
+    },
   },
   {
     sequelize,

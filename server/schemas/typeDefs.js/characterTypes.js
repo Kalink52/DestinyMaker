@@ -37,7 +37,8 @@ type Race {
     name: String
     description: String
     base_speed: Int
-    base_darkvision: Int
+    weight: String
+    size: String
     features: [Feature]
     }
 
