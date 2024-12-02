@@ -4,6 +4,7 @@ const {
   Background,
   Class,
   Race,
+  Skill,
   Subrace,
   //   CharacterAbility,
 } = require("../models");
@@ -21,18 +22,25 @@ const resolvers = {
       return charData;
     },
     GetAllTraits: async () => {
-      const attributeData =  Attribute.findAll();
-      const backgroundData = Background.findAll();
+      const attributeData = Attribute.findAll();
+      const backgroundData = Background.findAll({
+        include: {
+          all: true,
+          nested: true,
+        },
+      });
       const classData = Class.findAll();
       const racedata = Race.findAll();
-      const subraces = Subrace.findAll(); 
+      const skillData = Skill.findAll();
+      const subraces = Subrace.findAll();
       return {
         attribute: attributeData,
         background: backgroundData,
         class: classData,
         race: racedata,
+        skill: skillData,
         subrace: subraces,
-      } ;
+      };
     },
   },
   Character: {

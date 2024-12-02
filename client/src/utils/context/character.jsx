@@ -95,6 +95,7 @@ const CharacterProvider = ({ children }) => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   const [character, setCharacter] = useState(DEFAULTCHARACTER);
   const [abilityModifier, setAbilityModifiers] = useState();
+
   useEffect(() => {
     const calculateAbilityModifiers = () => {
       const modifiers = character.attributes.map((attr) => {
@@ -108,6 +109,7 @@ const CharacterProvider = ({ children }) => {
     calculateAbilityModifiers();
   }, [character]);
   console.log(character);
+
   return (
     <CharacterContext.Provider
       value={{ character, setCharacter, abilityModifier }}

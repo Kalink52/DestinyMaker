@@ -1,9 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import { CharacterContext } from "../../../utils/context/character";
+import { TraitContext } from "../../../utils/context/trait";
 const Startingpoints = 27;
 
 export default function AttributeForm() {
   const { character, setCharacter } = useContext(CharacterContext);
+  const { traits } = useContext(TraitContext);
+  // const { attribute: attributes } = traits;
+  // console.log(attributes);
 
   const PointsLeft = () => {
     let pointsUsed = character.attributes.reduce((total, attr) => {
@@ -21,9 +25,7 @@ export default function AttributeForm() {
   const [isPointsLeft, setPointsLeft] = useState(true);
   useEffect(() => {
     setPointsLeft(PointsLeft() <= 0);
-
-    console.log(isPointsLeft);
-  });
+  }, [isPointsLeft]);
 
   const handleChange = (e, attribute) => {
     setCharacter({

@@ -15,6 +15,9 @@ const Character_Features = require("./CharacterFeatures");
 const Character_Proficiencies = require("./CharacterProficiencies.js");
 const Character_Skills = require("./CharacterSkills.js");
 const Character_Spells = require("./CharacterSpells.js");
+
+const Background_Skill = require("./BackgroundSkill");
+
 // Create associations between models
 Character.belongsTo(Race, { foreignKey: "race_id" });
 Character.belongsTo(Subrace, { foreignKey: "subrace_id" });
@@ -31,6 +34,12 @@ Character.belongsToMany(Skill, {
   foreignKey: "character_id",
   otherKey: "skill_id",
 });
+
+Background.belongsToMany(Skill, {
+  through: Background_Skill,
+  foreignKey: "background_id",
+  otherKey: "skill_id",
+})
 
 module.exports = {
   Attribute,
@@ -49,4 +58,5 @@ module.exports = {
   Character_Proficiencies,
   Character_Skills,
   Character_Spells,
+  Background_Skill,
 };

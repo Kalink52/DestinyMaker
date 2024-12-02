@@ -18,6 +18,7 @@ type Traits{
     background: [Background], 
     class: [Class], 
     race: [Race], 
+    skill: [Skill], 
     subrace: [Subrace], 
 }
 
@@ -62,7 +63,7 @@ type Background{
     id: ID!
     name: String
     description:String
-    skill_proficiencies: String
+    skills: [Skill]
     }
 
 type Ability{
@@ -77,5 +78,10 @@ type CharacterAbility{
     ability: Ability
     value: Int
     }
-
+type Skill{
+    id: ID!
+    name: String
+    description: String
+    associated_attribute: String
+}
     `;

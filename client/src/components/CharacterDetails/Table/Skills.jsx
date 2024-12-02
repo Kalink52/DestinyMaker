@@ -1,28 +1,10 @@
 import { useContext } from "react";
 import { CharacterContext } from "../../../utils/context/character";
+import { TraitContext } from "../../../utils/context/trait";
 export default function Skills() {
-  const { abilityModifier } = useContext(CharacterContext);
-  const skills = [
-    { name: "Athletics", value: 0, associatedAbility: "Strength" },
-    { name: "Acrobatics", value: 0, associatedAbility: "Dexterity" },
-    { name: "Sleight of Hand", value: 0, associatedAbility: "Dexterity" },
-    { name: "Stealth", value: 0, associatedAbility: "Dexterity" },
-    { name: "Arcana", value: 0, associatedAbility: "Intelligence" },
-    { name: "History", value: 0, associatedAbility: "Intelligence" },
-    { name: "Investigation", value: 0, associatedAbility: "Intelligence" },
-    { name: "Nature", value: 0, associatedAbility: "Intelligence" },
-    { name: "Religion", value: 0, associatedAbility: "Intelligence" },
-    { name: "Animal Handling", value: 0, associatedAbility: "Wisdom" },
-    { name: "Insight", value: 0, associatedAbility: "Wisdom" },
-    { name: "Medicine", value: 0, associatedAbility: "Wisdom" },
-    { name: "Perception", value: 0, associatedAbility: "Wisdom" },
-    { name: "Survival", value: 0, associatedAbility: "Wisdom" },
-    { name: "Deception", value: 0, associatedAbility: "Charisma" },
-    { name: "Intimidation", value: 0, associatedAbility: "Charisma" },
-    { name: "Performance", value: 0, associatedAbility: "Charisma" },
-    { name: "Persuasion", value: 0, associatedAbility: "Charisma" },
-  ];
-
+  const { character, abilityModifier } = useContext(CharacterContext);
+  const { traits } = useContext(TraitContext);
+  const { background: backgrounds, skill: skills } = traits;
   return (
     <>
       <div>Skills</div>
@@ -36,9 +18,10 @@ export default function Skills() {
                   <div>
                     {
                       abilityModifier?.find(
-                        (ability) => ability.name === skill.associatedAbility
+                        (ability) => ability.name === skill.associated_attribute
                       ).value
                     }
+                    {}
                   </div>
                 </div>
               );
@@ -54,7 +37,7 @@ export default function Skills() {
                   <div>
                     {
                       abilityModifier?.find(
-                        (ability) => ability.name === skill.associatedAbility
+                        (ability) => ability.name === skill.associated_attribute
                       ).value
                     }
                   </div>

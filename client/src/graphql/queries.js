@@ -50,3 +50,55 @@ export const GET_CHARACTERS = gql`
     }
   }
 `;
+export const GET_TRAITS = gql`
+  query Query {
+    GetAllTraits {
+      race {
+        id
+        name
+        description
+        base_speed
+        base_darkvision
+      }
+      attribute {
+        id
+        name
+        description
+      }
+      background {
+        id
+        name
+        description
+        skills {
+          id
+          name
+          description
+          associated_attribute
+        }
+      }
+      class {
+        id
+        name
+        description
+        base_health
+        health_per_level
+        spellcasting_ability
+        proficiencies
+      }
+      subrace {
+        id
+        race_id
+        name
+        description
+        additional_speed
+        additional_dark_vision
+      }
+      skill {
+        id
+        name
+        description
+        associated_attribute
+      }
+    }
+  }
+`;

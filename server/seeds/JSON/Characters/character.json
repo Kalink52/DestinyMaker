@@ -1,14 +1,14 @@
 [
-    {
-      "id": 1,
-      "name": "Elanore",
-      "race_id": 1,
-      "subrace_id": 2,
-      "class_id": 3,
-      "background_id": 2,
-      "health": 13,
-      "speed": 35,
-      "level": 1,
-      "darkvision": 60
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Elanore",
+    "race_id": 1,
+    "subrace_id": 2,
+    "class_id": 3,
+    "background_id": 1,
+    "health": 13,
+    "speed": 35,
+    "level": 1,
+    "darkvision": 60
+  }
+]

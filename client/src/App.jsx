@@ -9,6 +9,7 @@ import {
 import Header from "./components/header/Header";
 import { ThemeProvider } from "@material-tailwind/react";
 import { CharacterProvider } from "./utils/context/character";
+import { TraitProvider } from "./utils/context/trait";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -32,10 +33,12 @@ function App() {
       <ApolloProvider client={client}>
         <ThemeProvider>
           <CharacterProvider>
-            <div className="h-screen w-screen">
-              <Header />
-              <Outlet />
-            </div>
+            <TraitProvider>
+              <div className="h-screen w-screen">
+                <Header />
+                <Outlet />
+              </div>
+            </TraitProvider>
           </CharacterProvider>
         </ThemeProvider>
       </ApolloProvider>
