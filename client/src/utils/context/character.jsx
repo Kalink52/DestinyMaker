@@ -78,7 +78,7 @@ const DEFAULTCHARACTER = {
         name: "Wisdom",
         description: "Perception and insight.",
       },
-      value: 13,
+      value: 8,
     },
     {
       attribute: {
@@ -86,7 +86,7 @@ const DEFAULTCHARACTER = {
         name: "Charisma",
         description: "Charm, influence, personality.",
       },
-      value: 15,
+      value: 8,
     },
   ],
 };
@@ -95,6 +95,12 @@ const CharacterProvider = ({ children }) => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   const [character, setCharacter] = useState(DEFAULTCHARACTER);
   const [abilityModifier, setAbilityModifiers] = useState();
+
+  useEffect(() => {
+    if (data) {
+      setCharacter(data.characters[0]);
+    }
+  }, [data]);
 
   useEffect(() => {
     const calculateAbilityModifiers = () => {
@@ -108,8 +114,10 @@ const CharacterProvider = ({ children }) => {
     };
     calculateAbilityModifiers();
   }, [character]);
-  console.log(character);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  console.log(character);
   return (
     <CharacterContext.Provider
       value={{ character, setCharacter, abilityModifier }}

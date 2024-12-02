@@ -5,16 +5,18 @@ export const GET_CHARACTERS = gql`
     characters {
       id
       name
-      health
-      speed
-      level
-      darkvision
       race {
         id
+        name
         description
         base_speed
         base_darkvision
-        name
+        features {
+          id
+          name
+          description
+          default_value
+        }
       }
       subrace {
         id
@@ -37,8 +39,17 @@ export const GET_CHARACTERS = gql`
         id
         name
         description
-        skill_proficiencies
+        skills {
+          id
+          name
+          description
+          associated_attribute
+        }
       }
+      health
+      speed
+      level
+      darkvision
       attributes {
         attribute {
           id

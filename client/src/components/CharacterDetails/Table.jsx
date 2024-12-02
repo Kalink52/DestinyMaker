@@ -1,6 +1,5 @@
 import { Typography } from "@material-tailwind/react";
 
-
 import { useContext } from "react";
 import { CharacterContext } from "../../utils/context/character";
 import Basic from "./Table/Basic";
@@ -43,6 +42,10 @@ export default function Table() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="border-t-4">
+            <div>features</div>
+            <Features />
           </div>
         </div>
       </div>

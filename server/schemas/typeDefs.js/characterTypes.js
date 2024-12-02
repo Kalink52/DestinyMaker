@@ -38,6 +38,7 @@ type Race {
     description: String
     base_speed: Int
     base_darkvision: Int
+    features: [Feature]
     }
 
 type Subrace {
@@ -84,4 +85,10 @@ type Skill{
     description: String
     associated_attribute: String
 }
+type Feature{
+    id: ID!
+    name:String
+    description: String
+    default_value: Int 
+    }
     `;

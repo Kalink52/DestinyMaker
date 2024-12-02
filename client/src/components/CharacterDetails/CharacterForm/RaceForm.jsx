@@ -15,20 +15,25 @@ export default function RaceForm() {
   };
   return (
     <>
-      <Select label="Select Race" onChange={handleRaceChange}>
+      <Select
+        label="Select Race"
+        onChange={handleRaceChange}
+      >
         {races.map((race) => (
           <Option key={race.id} value={JSON.stringify(race)}>
             {race.name}
           </Option>
         ))}
       </Select>
-      <Select label="Select Subrace" onChange={handleSubRaceChange}>
+      <Select
+        label="Select Subrace"
+        onChange={handleSubRaceChange}
+      >
         {subraces
           .filter((sub) => {
-            return sub.race_id === character.race.id;
+            return sub.race_id == character.race.id;
           })
           .map((sub) => {
-            console.log(sub);
             return (
               <Option key={sub.id} value={JSON.stringify(sub)}>
                 {sub.name}

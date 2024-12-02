@@ -6,6 +6,7 @@ const {
   Race,
   Skill,
   Subrace,
+  Feature,
   //   CharacterAbility,
 } = require("../models");
 // const { signToken, AuthenticationError } = require("../utils/auth");

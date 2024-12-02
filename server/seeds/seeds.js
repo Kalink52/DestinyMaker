@@ -11,6 +11,7 @@ const {
   spells,
   subraces,
   backgroundSkill,
+  raceFeatures,
 } = require("./JSON/CharacterAttributes");
 const {
   Attribute,
@@ -30,6 +31,7 @@ const {
   Character_Skills,
   Character_Spells,
   Background_Skill,
+  Race_Features,
 } = require("../models");
 const {
   characters,
@@ -81,6 +83,8 @@ const seedAll = async () => {
     console.log("*********** SEEDING BackgroundSkills ****************");
     await Background_Skill.bulkCreate(backgroundSkill);
 
+    console.log("*********** SEEDING RaceAttributes ****************");
+    await Race_Features.bulkCreate(raceFeatures);
     console.log("*********** SUCCESS ***********");
     console.log("*********** server seeded ***********");
     process.exit(0);
