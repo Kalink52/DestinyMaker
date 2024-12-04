@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
 
-class Feature extends Model {}
+class SubraceFeatures extends Model {}
 
-Feature.init(
+SubraceFeatures.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,27 +12,27 @@ Feature.init(
       allowNull: false,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    value: {
+    subrace_id: {
       type: DataTypes.INTEGER,
+      references: {
+        model: "subrace",
+        key: "id",
+      },
     },
-    type: {
-      type: DataTypes.STRING,
+    feature_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "feature",
+        key: "id",
+      },
     },
   },
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
-    modelName: "feature",
+    modelName: "subrace_features",
   }
 );
 
-module.exports = Feature;
+module.exports = SubraceFeatures;

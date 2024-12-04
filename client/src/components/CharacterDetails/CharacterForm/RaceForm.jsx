@@ -4,7 +4,6 @@ import { CharacterContext } from "../../../utils/context/character";
 import { TraitContext } from "../../../utils/context/trait";
 export default function RaceForm() {
   const { traits } = useContext(TraitContext);
-  console.log(traits);
   const { character, setCharacter } = useContext(CharacterContext);
   const { race: races, subrace: subraces } = traits;
   const handleRaceChange = (e) => {

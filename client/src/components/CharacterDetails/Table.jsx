@@ -1,5 +1,4 @@
 import { Typography } from "@material-tailwind/react";
-
 import { useContext } from "react";
 import { CharacterContext } from "../../utils/context/character";
 import Basic from "./Table/Basic";

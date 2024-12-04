@@ -90,6 +90,7 @@ type Feature{
     id: ID!
     name:String
     description: String
-    default_value: Int 
+    value: Int 
+    type: String
     }
     `;
