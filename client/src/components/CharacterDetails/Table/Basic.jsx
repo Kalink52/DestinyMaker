@@ -1,4 +1,4 @@
-import { Typography } from "@material-tailwind/react";
+import { Typography, Tooltip } from "@material-tailwind/react";
 import { useContext } from "react";
 import { CharacterContext } from "../../../utils/context/character";
 export default function Basic() {
@@ -15,7 +15,9 @@ export default function Basic() {
           {character.attributes.map((att, index) => {
             return (
               <div key={index}>
-                <Typography>{att.attribute.name}</Typography>
+                <Tooltip content={att.attribute.description} placement="top">
+                  <Typography>{att.attribute.name}</Typography>
+                </Tooltip>
                 <Typography>
                   {att.value} (
                   {

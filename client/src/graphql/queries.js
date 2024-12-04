@@ -14,7 +14,8 @@ export const GET_CHARACTERS = gql`
           id
           name
           description
-          default_value
+          value
+          type
         }
         size
         weight
@@ -99,7 +100,8 @@ export const GET_TRAITS = gql`
           id
           name
           description
-          default_value
+          value
+          type
         }
         size
         weight
