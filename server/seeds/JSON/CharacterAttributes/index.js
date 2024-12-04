@@ -9,6 +9,10 @@ const skills = require("./skills");
 const spells = require("./spells");
 const subraces = require("./subraces");
 
+const backgroundSkill = require("./backgroundSkill");
+
+const raceFeatures = require("./raceFeatures");
+
 module.exports = {
   attributes,
   backgrounds,
@@ -20,4 +24,6 @@ module.exports = {
   skills,
   spells,
   subraces,
+  backgroundSkill,
+  raceFeatures,
 };

@@ -20,9 +20,6 @@ Background.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    skill_proficiencies: {
-      type: DataTypes.TEXT,
-    },
   },
   {
     sequelize,

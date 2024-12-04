@@ -2,25 +2,109 @@
   {
     "id": 1,
     "name": "Acrobatics",
-    "description": "Agility and balance.",
+    "description": "Acrobatics is everything from balance to backflips — useful for showing off and getting away.",
     "associated_attribute": "Dexterity"
   },
   {
     "id": 2,
-    "name": "Stealth",
-    "description": "Ability to move silently.",
-    "associated_attribute": "Dexterity"
+    "name": "Animal Handling",
+    "description": "Animal Handling is equal parts empathy and knowledge, allowing you to gain the trust of wild creatures. You also make a Wisdom (Animal Handling) check to control your mount when you attempt a risky maneuver",
+    "associated_attribute": "Wisdom"
   },
   {
     "id": 3,
     "name": "Arcana",
-    "description": "Knowledge of magic and lore.",
+    "description": "Arcana is knowledge of magic and its applications, useful for interacting with enchanted items or powerful spells.",
     "associated_attribute": "Intelligence"
   },
   {
     "id": 4,
-    "name": "Persuasion",
-    "description": "Influence others through charm.",
+    "name": "Athletics",
+    "description": "Athletics is skill in physical movement, such as climbing, jumping, or swimming.",
+    "associated_attribute": "Strength"
+  },
+  {
+    "id": 5,
+    "name": "Deception",
+    "description": "Deception is the art of manipulating truth, allowing you to mislead others.",
     "associated_attribute": "Charisma"
+  },
+  {
+    "id": 6,
+    "name": "History",
+    "description": "History is everything you know about Faerûn's past, allowing you to recognize notable names and unusual items.",
+    "associated_attribute": "Intelligence"
+  },
+  {
+    "id": 7,
+    "name": "Insight",
+    "description": "Insight allows you to read people and situations, piercing through lies and other forms of deceit.",
+    "associated_attribute": "Wisdom"
+  },
+  {
+    "id": 8,
+    "name": "Intimidation",
+    "description": "Intimidation is the use of threats in speech, forcing others to break under your will.",
+    "associated_attribute": "Charisma"
+  },
+  {
+    "id": 9,
+    "name": "Investigation",
+    "description": "Investigation is the art of deduction and extracting information, whether from objects or people.",
+    "associated_attribute": "Intelligence"
+  },
+  {
+    "id": 10,
+    "name": "Medicine",
+    "description": "Medicine is knowledge and training that can be used to heal wounds and diagnose disease.",
+    "associated_attribute": "Wisdom"
+  },
+  {
+    "id": 11,
+    "name": "Nature",
+    "description": "Nature is expertise on flora and fauna, as well as the primal rhythms and patterns of the world around you.",
+    "associated_attribute": "Intelligence"
+  },
+  {
+    "id": 12,
+    "name": "Perception",
+    "description": "Perception is how your senses work together, detecting the details of your environment and anything out of the ordinary.",
+    "associated_attribute": "Wisdom"
+  },
+  {
+    "id": 13,
+    "name": "Performance",
+    "description": "Performance is the ability to act, play instruments, and otherwise entertain audiences of all sizes.",
+    "associated_attribute": "Charisma"
+  },
+  {
+    "id": 14,
+    "name": "Persuasion",
+    "description": "Persuasion is the art of convincing others to do your bidding and securing favors.",
+    "associated_attribute": "Charisma"
+  },
+  {
+    "id": 15,
+    "name": "Religion",
+    "description": "Religion encompasses knowledge about deities in the world of Abeir-Toril, including their domains, clergy, and holy rites.",
+    "associated_attribute": "Intelligence"
+  },
+  {
+    "id": 16,
+    "name": "Sleight of Hand",
+    "description": "Sleight of Hand improves manual dexterity, whether for picking someone's pocket or untying a rope around your wrists.",
+    "associated_attribute": "Dexterity"
+  },
+  {
+    "id": 17,
+    "name": "Stealth",
+    "description": "Stealth is the ability to sneak, using silence and cover to avoid undesired attention.",
+    "associated_attribute": "Dexterity"
+  },
+  {
+    "id": 18,
+    "name": "Survival",
+    "description": "Survival is knowledge of tracking, foraging, and hunting, and familiarity with natural hazards.",
+    "associated_attribute": "Wisdom"
   }
 ]

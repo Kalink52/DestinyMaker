@@ -10,14 +10,24 @@ type Character {
     speed: Int
     level: Int
     darkvision: Int
-
     attributes: [AttributeValue]
     }
+
+type Traits{
+    attribute: [Attribute] 
+    background: [Background], 
+    class: [Class], 
+    race: [Race], 
+    skill: [Skill], 
+    subrace: [Subrace], 
+}
+
 type Attribute {
     id: ID!
     name: String!
     description: String
     }
+    
 type AttributeValue  {
     attribute: Attribute!
     value: Int
@@ -27,7 +37,9 @@ type Race {
     name: String
     description: String
     base_speed: Int
-    base_darkvision: Int
+    weight: String
+    size: String
+    features: [Feature]
     }
 
 type Subrace {
@@ -53,7 +65,7 @@ type Background{
     id: ID!
     name: String
     description:String
-    skill_proficiencies: String
+    skills: [Skill]
     }
 
 type Ability{
@@ -68,12 +80,16 @@ type CharacterAbility{
     ability: Ability
     value: Int
     }
-
-type Traits{
-    race: [Race], 
-    subrace: [Subrace], 
-    class: [Class], 
-    background: [Background], 
-    abilities: [Ability] 
+type Skill{
+    id: ID!
+    name: String
+    description: String
+    associated_attribute: String
 }
+type Feature{
+    id: ID!
+    name:String
+    description: String
+    default_value: Int 
+    }
     `;

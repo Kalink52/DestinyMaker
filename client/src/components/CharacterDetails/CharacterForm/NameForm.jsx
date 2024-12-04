@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { CharacterContext } from "../../../utils/context/character";
 export default function NameForm() {
   const { character, setCharacter } = useContext(CharacterContext);
-  console.log(name);
   const handleChange = (e) => {
     console.log(e.target.value);
     setCharacter({ ...character, name: e.target.value });

@@ -3,34 +3,37 @@ import { useContext } from "react";
 import { CharacterContext } from "../../../utils/context/character";
 
 export default function Attributes() {
-  const { character } = useContext(CharacterContext);
+  const { character, abilityModifier } = useContext(CharacterContext);
   const { race, subrace, class: clas } = character;
-  const getDexModifier = () => {
-    const dex = character.attributes[1].value;
-    return Math.floor((dex - 10) / 2);
-  };
   const getStrModifier = () => {
     const dex = character.attributes[0].value;
     return Math.floor((dex - 10) / 2);
   };
-
+  const getModifer = (att) => {
+    return abilityModifier?.find((ability) => {
+      return ability.name === att;
+    }).value;
+  };
   const AttributesMap = [
     {
       name: "Hit Points",
-      value: clas.base_health,
+      value:
+        clas.base_health +
+        (clas.health_per_level + getModifer("Constitution")) * character.level -
+        clas.health_per_level,
 
       // The formulate here should be
       // base + (scaling * (level-1 ))
     },
     {
       name: "Armor Class",
-      value: 10 + getDexModifier() + " TBD",
+      value: 10 + getModifer("Dexterity") + " TBD",
 
       // 10 + Dexterity modifier + armour bonus + shield bonus + other bonuses and penalties
     },
     {
       name: "Initiative",
-      value: 10 + getDexModifier(),
+      value: 10 + getModifer("Dexterity"),
       // 10 + Dexterity modifier
     },
     {
@@ -45,15 +48,15 @@ export default function Attributes() {
     },
     {
       name: "Size",
-      value: race.size,
+      value: race?.size || "TBD",
     },
     {
       name: "Weight",
-      value: "TBD",
+      value: race?.weight || "TBD",
     },
     {
       name: "Carry Capacity",
-      value: 80 + 20 * getStrModifier(),
+      value: 80 + 20 * getModifer("Strength"),
     },
   ];
 

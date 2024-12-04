@@ -1,68 +1,35 @@
 import { useContext } from "react";
 import { CharacterContext } from "../../../utils/context/character";
+import { TraitContext } from "../../../utils/context/trait";
 export default function Skills() {
-  const { abilityModifier } = useContext(CharacterContext);
-  const skills = [
-    { name: "Athletics", value: 0, associatedAbility: "Strength" },
-    { name: "Acrobatics", value: 0, associatedAbility: "Dexterity" },
-    { name: "Sleight of Hand", value: 0, associatedAbility: "Dexterity" },
-    { name: "Stealth", value: 0, associatedAbility: "Dexterity" },
-    { name: "Arcana", value: 0, associatedAbility: "Intelligence" },
-    { name: "History", value: 0, associatedAbility: "Intelligence" },
-    { name: "Investigation", value: 0, associatedAbility: "Intelligence" },
-    { name: "Nature", value: 0, associatedAbility: "Intelligence" },
-    { name: "Religion", value: 0, associatedAbility: "Intelligence" },
-    { name: "Animal Handling", value: 0, associatedAbility: "Wisdom" },
-    { name: "Insight", value: 0, associatedAbility: "Wisdom" },
-    { name: "Medicine", value: 0, associatedAbility: "Wisdom" },
-    { name: "Perception", value: 0, associatedAbility: "Wisdom" },
-    { name: "Survival", value: 0, associatedAbility: "Wisdom" },
-    { name: "Deception", value: 0, associatedAbility: "Charisma" },
-    { name: "Intimidation", value: 0, associatedAbility: "Charisma" },
-    { name: "Performance", value: 0, associatedAbility: "Charisma" },
-    { name: "Persuasion", value: 0, associatedAbility: "Charisma" },
-  ];
-
+  const { character, abilityModifier } = useContext(CharacterContext);
+  const { traits } = useContext(TraitContext);
+  const {  skill: skills } = traits;
+  console.log(character.background);
   return (
     <>
       <div>Skills</div>
-      <div className="grid grid-cols-2 divide-x-4 ">
-        <div className="px-2 ">
-          {skills.map((skill, index) => {
-            if (index < 9) {
-              return (
-                <div key={index} className="flex justify-between ">
-                  <div>{skill.name}</div>
-                  <div>
-                    {
-                      abilityModifier?.find(
-                        (ability) => ability.name === skill.associatedAbility
-                      ).value
-                    }
-                  </div>
-                </div>
-              );
-            }
-          })}
-        </div>
-        <div className="px-2">
-          {skills.map((skill, index) => {
-            if (index >= 9) {
-              return (
-                <div key={index} className="flex justify-between ">
-                  <div>{skill.name}</div>
-                  <div>
-                    {
-                      abilityModifier?.find(
-                        (ability) => ability.name === skill.associatedAbility
-                      ).value
-                    }
-                  </div>
-                </div>
-              );
-            }
-          })}
-        </div>
+      <div className="grid grid-rows-9 grid-flow-col gap-x-2 ">
+        {skills.map((skill, index) => {
+          return (
+            <div key={index} className="flex justify-between ">
+              <div>{skill.name}</div>
+              <div>
+                {
+                  // get the ability modifier for the skill's associated attribute
+                  abilityModifier?.find(
+                    (ability) => ability.name === skill.associated_attribute
+                  ).value + // Adds the bonus from the character's background
+                    (character.background.skills?.find((charSkill) => {
+                      return charSkill.name === skill.name;
+                    })?.name
+                      ? 1
+                      : 0)
+                }
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
