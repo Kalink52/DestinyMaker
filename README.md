@@ -11,7 +11,7 @@ Full stack developer skilled in JavaScript, React, Node.js, and databases, passi
 - Starts with a default character loaded
 - Allows you to name your character
 - Background your character background and adds the skills associated with the background to the character sheet
-- Race determines your subrace (if applicable ) size, weight, and starting features of your character (right now only elf human, and drow's feature work)
+- Race determines your subrace (if applicable ) size, weight, and starting features of your character (right now only Elf, Human, and drow's feature work)
 - Subrace at this state only adds the subrace to the character sheet
 - Ability scores apply their modifier to the carry capacity, initiative, Hit Points and the appropriate skills.
 - Level at this state only increases Hit Points
@@ -34,13 +34,13 @@ Make sure you have NodeJS installed and PostgreSQL installed
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone git@github.com:Kalink52/DestinyMaker.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd DestinyMaker 
 ```
 
 Install dependencies
