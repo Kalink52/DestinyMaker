@@ -5,7 +5,6 @@ import { CharacterContext } from "../../../utils/context/character";
 export default function Attributes() {
   const { character, abilityModifier } = useContext(CharacterContext);
   const { race, subrace, class: clas } = character;
-  console.log(race.features);
 
   const getModifer = (att) => {
     return abilityModifier?.find((ability) => {

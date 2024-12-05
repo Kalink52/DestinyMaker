@@ -11,7 +11,6 @@ export default function Skills() {
       <div>Skills</div>
       <div className="grid grid-rows-9 grid-flow-col gap-x-2 ">
         {skills.map((skill, index) => {
-          console.log(skill);
           return (
             <div key={index} className="flex justify-between ">
               <Tooltip
@@ -30,7 +29,7 @@ export default function Skills() {
                   // get the ability modifier for the skill's associated attribute
                   abilityModifier?.find(
                     (ability) => ability.name === skill.associated_attribute
-                  ).value + // Adds the bonus from the character's background
+                  ).value || 8 + // Adds the bonus from the character's background
                     (character.background.skills?.find((charSkill) => {
                       return charSkill.name === skill.name;
                     })?.name

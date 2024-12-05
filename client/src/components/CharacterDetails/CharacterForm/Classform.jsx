@@ -32,13 +32,12 @@ const classes = [
   },
 ];
 export default function ClassForm() {
-  const { character, setCharacter } = useContext(CharacterContext);
+  const { character, dispatch } = useContext(CharacterContext);
   const handleClassChange = (e) => {
-    console.log(e);
-    setCharacter({ ...character, class: JSON.parse(e) });
+    dispatch({ type: "SET_CLASS", payload: JSON.parse(e) });
   };
   const handleLevelChange = (e) => {
-    setCharacter({ ...character, level: parseInt(e.target.value) });
+    dispatch({ type: "SET_LEVEL", payload: parseInt(e.target.value) });
   };
   return (
     <>

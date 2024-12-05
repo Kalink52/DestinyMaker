@@ -3,6 +3,7 @@ import { Tooltip } from "@material-tailwind/react";
 import { CharacterContext } from "../../../utils/context/character";
 export default function Features() {
   const { character } = useContext(CharacterContext);
+  console.log(character); // Outputs the current character object
   // console.log(character.race.features); // Outputs the current character object
   return (
     <div>
@@ -10,8 +11,8 @@ export default function Features() {
       <div className="grid grid-cols-2">
         <div className="flex justify-between">
           <div>Race:</div>
-          <div >
-            {character.race?.features.map((feature) => {
+          <div>
+            {character.race.features?.map((feature) => {
               return (
                 <Tooltip
                   key={feature.id}
@@ -26,7 +27,7 @@ export default function Features() {
                   <div key={feature.id}>{feature.name}</div>
                 </Tooltip>
               );
-            })}
+            }) || "No features available"}
           </div>
         </div>
       </div>

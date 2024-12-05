@@ -1,11 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { CharacterContext } from "../../../utils/context/character";
-import { TraitContext } from "../../../utils/context/trait";
-const Startingpoints = 27;
+const STARTINGPOINTS = 27;
 
 export default function AttributeForm() {
-  const { character, setCharacter } = useContext(CharacterContext);
-  const { traits } = useContext(TraitContext);
+  const { character, dispatch } = useContext(CharacterContext);
   // const { attribute: attributes } = traits;
   // console.log(attributes);
 
@@ -19,7 +17,7 @@ export default function AttributeForm() {
       }
       return total + (attr.value - 8);
     }, 0);
-    return Startingpoints - pointsUsed;
+    return STARTINGPOINTS - pointsUsed;
   };
 
   const [isPointsLeft, setPointsLeft] = useState(true);
@@ -27,14 +25,11 @@ export default function AttributeForm() {
     setPointsLeft(PointsLeft() <= 0);
   }, [isPointsLeft]);
 
-  const handleChange = (e, attribute) => {
-    setCharacter({
-      ...character,
-      attributes: character.attributes.map((attr) =>
-        attr.attribute.name === attribute.attribute.name
-          ? { ...attr, value: e.target.value }
-          : attr
-      ),
+  const handleChange = (e, index, attribute) => {
+    dispatch({
+      type: "UPDATE_ATTRIBUTES",
+      index: index,
+      payload: { ...attribute, value: parseInt(e.target.value) },
     });
   };
 
@@ -50,7 +45,7 @@ export default function AttributeForm() {
               value={attribute.value}
               min={8}
               max={15}
-              onChange={(e) => handleChange(e, attribute)}
+              onChange={(e) => handleChange(e, index, attribute)}
             />
           </div>
         );

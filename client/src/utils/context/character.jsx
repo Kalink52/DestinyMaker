@@ -1,45 +1,16 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useReducer } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "../../graphql/queries";
-import { useContext } from "react";
-const CharacterContext = createContext();
-const DEFAULTCHARACTER = {
-  id: "1",
-  name: "Elanore",
-  health: 13,
+export const CharacterContext = createContext();
+const initialCharacterState = {
+  name: null,
+  health: null,
   speed: null,
   level: 1,
-  darkvision: 60,
-  race: {
-    id: "1",
-    description: "Graceful, long-lived, and magical.",
-    base_speed: 30,
-    base_darkvision: 60,
-    size: "Medium",
-  },
-  subrace: {
-    id: "2",
-    race_id: 1,
-    name: "Wood Elf",
-    description: "Agile, naturalists.",
-    additional_speed: 5,
-    additional_dark_vision: null,
-  },
-  class: {
-    id: "3",
-    name: "Rogue",
-    description: "Sneaky, dexterous, and resourceful.",
-    base_health: 8,
-    health_per_level: 5,
-    spellcasting_ability: null,
-    proficiencies: "Light Armor, Thieves' Tools",
-  },
-  background: {
-    id: "2",
-    name: "Soldier",
-    description: "Trained in military skills.",
-    skill_proficiencies: "Athletics, Intimidation",
-  },
+  race: {},
+  subrace: {},
+  class: {},
+  background: {},
   attributes: [
     {
       attribute: {
@@ -92,20 +63,42 @@ const DEFAULTCHARACTER = {
   ],
 };
 
-const CharacterProvider = ({ children }) => {
-  const { loading, error, data } = useQuery(GET_CHARACTERS);
-  const [character, setCharacter] = useState(DEFAULTCHARACTER);
+console.log("Invalid action type");
+function CharacterReducer(state, action) {
+  switch (action.type) {
+    case "SET_NAME":
+      return { ...state, name: action.payload };
+    case "SET_RACE":
+      return { ...state, race: action.payload };
+    case "SET_SUBRACE":
+      return { ...state, subrace: action.payload };
+    case "SET_CLASS":
+      return { ...state, class: action.payload };
+    case "SET_LEVEL":
+      return { ...state, level: action.payload };
+    case "SET_SUBCLASS":
+      return { ...state, subclass: action.payload };
+    case "UPDATE_ATTRIBUTES":
+      return {
+        ...state,
+        attributes: [
+          ...state.attributes.slice(0, action.index),
+          action.payload,
+          ...state.attributes.slice(action.index + 1),
+        ],
+      };
+    default:
+      console.log("Invalid action type");
+  }
+}
+export const CharacterProvider = ({ children }) => {
+  // const { loading, error, data } = useQuery(GET_CHARACTERS);
   const [abilityModifier, setAbilityModifiers] = useState();
-
-  useEffect(() => {
-    if (data) {
-      setCharacter(data.characters[0]);
-    }
-  }, [data]);
-
+  const [state, dispatch] = useReducer(CharacterReducer, initialCharacterState);
+  console.log(state);
   useEffect(() => {
     const calculateAbilityModifiers = () => {
-      const modifiers = character.attributes.map((attr) => {
+      const modifiers = state.attributes.map((attr) => {
         return {
           name: attr.attribute.name,
           value: Math.floor((attr.value - 10) / 2),
@@ -114,18 +107,15 @@ const CharacterProvider = ({ children }) => {
       setAbilityModifiers(modifiers);
     };
     calculateAbilityModifiers();
-  }, [character]);
+  }, [state]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  console.log(character);
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error.message}</p>;
   return (
     <CharacterContext.Provider
-      value={{ character, setCharacter, abilityModifier }}
+      value={{ character: state, abilityModifier, dispatch }}
     >
       {children}
     </CharacterContext.Provider>
   );
 };
-export { CharacterProvider, CharacterContext };
-

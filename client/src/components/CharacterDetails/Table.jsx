@@ -31,7 +31,7 @@ export default function Table() {
               <div>
                 {" "}
                 <div className="grid grid-cols-5">
-                  {character.attributes.map((att, index) => {
+                  {character?.attributes.map((att, index) => {
                     return (
                       <div key={index}>
                         <Typography>{att.attribute.name}</Typography>

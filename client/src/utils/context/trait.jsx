@@ -11,12 +11,6 @@ const TraitProvider = ({ children }) => {
     // fetchPolicy: "cache-first",
   });
 
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  }, [data]);
-
   if (error) console.error(error);
 
   return (
